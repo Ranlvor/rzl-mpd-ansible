@@ -1,0 +1,5 @@
+- name: assembling ssh-keys-file
+  local_action: assemble dest=/tmp/ssh-key src={{ playbook_dir }}/roles/ssh-keys/files delimiter='\n\n\n'
+  
+  
+- authorized_key: user=root  state=present exclusive=yes key="{{ lookup('file', '/tmp/ssh-key') }}"

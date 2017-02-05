@@ -1,0 +1,28 @@
+
+- apt: name={{ item }} state=present
+  with_items:
+    - python-setuptools
+    - python-virtualenv
+    - python-pip
+    - python-dev
+    - git
+    
+- user: name=onkyo2mqtt
+        state=present
+        system=yes
+        home=/opt/onkyo2mqtt
+        
+- pip: name="paho-mqtt" virtualenv=/opt/onkyo2mqtt/virtualenv
+
+- easy_install: name=onkyo-eiscp virtualenv=/opt/onkyo2mqtt/virtualenv
+
+- git: repo=https://github.com/owagner/onkyo2mqtt.git
+       dest=/opt/onkyo2mqtt/onkyo2mqtt
+       
+- include_role: 
+        name: systemd-service
+  vars:
+            systemd_service_name: onkyo2mqtt
+            systemd_service_Service_ExecStart: /opt/onkyo2mqtt/virtualenv/bin/python /opt/onkyo2mqtt/onkyo2mqtt/onkyo2mqtt.py  --mqtt-host infra.rzl --mqtt-topic /service/onkyo/
+
+

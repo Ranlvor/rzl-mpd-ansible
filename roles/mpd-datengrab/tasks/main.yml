@@ -1,0 +1,13 @@
+- apt: name={{ item }} state=present
+  with_items:
+    - mpd
+    - mpc
+  notify: reload mpd
+    
+- copy: src=mpd.conf dest=/etc/mpd.conf owner=mpd group=audio mode=0640
+  notify: reload mpd
+
+- meta: flush_handlers
+
+- name: update mpd database
+  command: mpc update --wait

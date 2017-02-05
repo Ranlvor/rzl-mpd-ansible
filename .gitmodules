@@ -1,0 +1,3 @@
+[submodule "roles/systemd-service"]
+	path = roles/systemd-service
+	url = https://github.com/tumf/ansible-role-systemd-service.git

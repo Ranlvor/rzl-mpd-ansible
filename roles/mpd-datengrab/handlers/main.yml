@@ -1,0 +1,4 @@
+---
+
+- name: reload mpd
+  service: name=mpd state=restarted

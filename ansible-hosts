@@ -1,0 +1,2 @@
+#192.168.122.129 ansible_ssh_user=root
+ranlvor.vm.rzl ansible_ssh_user=root
