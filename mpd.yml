@@ -3,3 +3,4 @@
      - ssh-keys
      - mpd-datengrab
      - onkyo2mqtt
+     - mpd-webinterface
