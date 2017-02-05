@@ -2,6 +2,7 @@
   with_items:
     - mpd
     - mpc
+    - lame
   notify: reload mpd
     
 - copy: src=mpd.conf dest=/etc/mpd.conf owner=mpd group=audio mode=0640
