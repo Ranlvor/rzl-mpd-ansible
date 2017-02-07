@@ -24,5 +24,4 @@
   vars:
             systemd_service_name: onkyo2mqtt
             systemd_service_Service_ExecStart: /opt/onkyo2mqtt/virtualenv/bin/python /opt/onkyo2mqtt/onkyo2mqtt/onkyo2mqtt.py  --mqtt-host infra.rzl --mqtt-topic /service/onkyo/
-
-
+            systemd_service_Service_Restart: always
