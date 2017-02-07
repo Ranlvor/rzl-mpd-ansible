@@ -1,0 +1,11 @@
+
+- apt: name={{ item }} state=present
+  with_items:
+    - iptables-persistent
+
+- copy:
+    src: rules.v4
+    dest: /etc/iptables/rules.v4
+  notify: reload iptables
+
+- meta: flush_handlers
