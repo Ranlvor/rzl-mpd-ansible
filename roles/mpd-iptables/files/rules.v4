@@ -3,6 +3,7 @@
 :INPUT ACCEPT [0:0]
 :FORWARD ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
--A INPUT ! -s 172.22.36.0/23 -p tcp -m multiport --dports 80,6600,8000 -j REJECT --reject-with icmp-port-unreachable
+-A INPUT -i lo -j ACCEPT
+-A INPUT ! -s 172.22.36.0/23 -p tcp -m multiport --dports 80,6600,8000 -j REJECT --reject-with icmp-admin-prohibited
 COMMIT
 # Completed on Tue Feb  7 17:02:59 2017
